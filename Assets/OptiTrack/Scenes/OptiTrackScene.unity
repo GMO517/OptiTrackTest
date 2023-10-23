@@ -425,6 +425,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a0b390429f61444968aa831b393574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  sensitivity: 5
   m_Player: {fileID: 2021662343}
 --- !u!81 &641057485
 AudioListener:
@@ -686,11 +688,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39a0b390429f61444968aa831b393574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  sensitivity: 5
   m_Player: {fileID: 2021662343}
 --- !u!1 &994382353
 GameObject:
@@ -921,6 +925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a0b390429f61444968aa831b393574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  sensitivity: 5
   m_Player: {fileID: 2021662343}
 --- !u!81 &1205550609
 AudioListener:
@@ -1295,19 +1301,6 @@ MonoBehaviour:
   StreamingClient: {fileID: 1815191069}
   SkeletonAssetName: Skeleton001
   DestinationAvatar: {fileID: 9000000, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
---- !u!114 &2021662346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2021662343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99631f54772aa5c4fad4798c38b19fc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!1001 &2050788322
 PrefabInstance:
   m_ObjectHideFlags: 0

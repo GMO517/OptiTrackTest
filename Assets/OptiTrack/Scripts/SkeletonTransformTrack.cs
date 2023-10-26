@@ -21,17 +21,17 @@ public class SkeletonTransformTrack : MonoBehaviour
     void Update()
     {
         head = animator.GetBoneTransform(HumanBodyBones.Head);
-        hip = animator.GetBoneTransform(HumanBodyBones.Hips);
+        //hip = animator.GetBoneTransform(HumanBodyBones.Hips);
         leftHand = animator.GetBoneTransform(HumanBodyBones.LeftHand);
         rightHand = animator.GetBoneTransform(HumanBodyBones.RightHand);
-        leftFoot = animator.GetBoneTransform(HumanBodyBones.LeftFoot);
-        rightFoot = animator.GetBoneTransform(HumanBodyBones.RightFoot);
+        //leftFoot = animator.GetBoneTransform(HumanBodyBones.LeftFoot);
+        //rightFoot = animator.GetBoneTransform(HumanBodyBones.RightFoot);
 
         Debug.Log("1: " + head.position);
-        Debug.Log("2: " + hip.position);
+        //Debug.Log("2: " + hip.position);
         Debug.Log("3: " + leftHand.position);
         Debug.Log("4: " + rightHand.position);
-        Debug.Log("5: " + leftFoot.position);
-        Debug.Log("6: " + rightFoot.position);
+        //Debug.Log("5: " + leftFoot.position);
+        //Debug.Log("6: " + rightFoot.position);
     }
 }

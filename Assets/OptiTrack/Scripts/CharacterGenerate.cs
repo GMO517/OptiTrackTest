@@ -15,7 +15,6 @@ public class CharacterGenerate : MonoBehaviour
         GameObject model = Instantiate(characterPrefab);
         model.transform.SetParent(root);
         // 附加腳本組件到人物模型
-        //skePosScript = OptitrackSkeletonAnimator skeletonTransformTrack;
         optiCharacter = model.AddComponent<OptitrackSkeletonAnimator>();
         model.AddComponent<SkeletonTransform>();
         //todo 做到這邊 準備加上抓取定位腳本

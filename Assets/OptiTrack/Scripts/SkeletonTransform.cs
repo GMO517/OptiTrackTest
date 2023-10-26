@@ -14,13 +14,17 @@ public class SkeletonTransform : MonoBehaviour
     private Animator animator;
 
     public GameObject followCube;
+    public GameObject followLHand;
+    public GameObject followRHand;
+
     void Start()
     {
         animator = GetComponent<Animator>();
-        followCube = GameObject.Find("Cube");
-    }
+        followCube = GameObject.Find("CubeHead");
+        followLHand = GameObject.Find("CubeLHand");
+        followRHand = GameObject.Find("CubeRHand");
 
-    // Update is called once per frame
+    }
     void Update()
     {
         head = animator.GetBoneTransform(HumanBodyBones.Head);
@@ -29,15 +33,15 @@ public class SkeletonTransform : MonoBehaviour
         rightHand = animator.GetBoneTransform(HumanBodyBones.RightHand);
         //leftFoot = animator.GetBoneTransform(HumanBodyBones.LeftFoot);
         //rightFoot = animator.GetBoneTransform(HumanBodyBones.RightFoot);
-
-        Debug.Log("頭: " + head.position);
+        //Debug.Log("頭: " + head.position);
         //Debug.Log("2: " + hip.position);
-        Debug.Log("左手: " + leftHand.position);
-        Debug.Log("右手: " + rightHand.position);
+        //Debug.Log("左手: " + leftHand.position);
+        //Debug.Log("右手: " + rightHand.position);
         //Debug.Log("5: " + leftFoot.position);
         //Debug.Log("6: " + rightFoot.position);
-        followCube.transform.position = leftHand.position;
-        followCube.transform.rotation = leftHand.rotation;
+        followCube.transform.SetPositionAndRotation(head.position, head.rotation);
+        followLHand.transform.SetPositionAndRotation(leftHand.position, leftHand.rotation);
+        followRHand.transform.SetPositionAndRotation(rightHand.position, rightHand.rotation);
 
     }
 }

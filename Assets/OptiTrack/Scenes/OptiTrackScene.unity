@@ -597,6 +597,24 @@ MonoBehaviour:
   StreamingClient: {fileID: 1815191069}
   SkeletonAssetName: Skeleton001
   DestinationAvatar: {fileID: 9000000, guid: 2e83bcfb6944e7143b1ed002dfd4a358, type: 3}
+--- !u!114 &881373149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881373146}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1c1cd6b5cc3c241ac697196e07aa17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 0}
+  hip: {fileID: 0}
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  leftFoot: {fileID: 0}
+  rightFoot: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

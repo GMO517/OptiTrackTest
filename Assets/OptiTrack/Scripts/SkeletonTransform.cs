@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonTransformTrack : MonoBehaviour
+public class SkeletonTransform : MonoBehaviour
 {
     public Transform head;
     public Transform hip;
@@ -12,9 +12,12 @@ public class SkeletonTransformTrack : MonoBehaviour
     public Transform rightFoot;
 
     private Animator animator;
+
+    public GameObject followCube;
     void Start()
     {
         animator = GetComponent<Animator>();
+        followCube = GameObject.Find("Cube");
     }
 
     // Update is called once per frame
@@ -27,11 +30,14 @@ public class SkeletonTransformTrack : MonoBehaviour
         //leftFoot = animator.GetBoneTransform(HumanBodyBones.LeftFoot);
         //rightFoot = animator.GetBoneTransform(HumanBodyBones.RightFoot);
 
-        Debug.Log("1: " + head.position);
+        Debug.Log("頭: " + head.position);
         //Debug.Log("2: " + hip.position);
-        Debug.Log("3: " + leftHand.position);
-        Debug.Log("4: " + rightHand.position);
+        Debug.Log("左手: " + leftHand.position);
+        Debug.Log("右手: " + rightHand.position);
         //Debug.Log("5: " + leftFoot.position);
         //Debug.Log("6: " + rightFoot.position);
+        followCube.transform.position = leftHand.position;
+        followCube.transform.rotation = leftHand.rotation;
+
     }
 }

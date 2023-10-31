@@ -27,6 +27,13 @@ public class SkeletonTrack : MonoBehaviour
     void Update()
     {
         //GetBoneTransform();
+        //Debug.Log("位置: " + trackHead.position);
+        //Debug.Log("位置2: " + trackHead.transform.position);
+
+        //Debug.Log("旋轉: " + trackHead.rotation);
+        //Debug.Log("旋轉: " + trackHead.transform.rotation);
+
+
     }
 
     private void GetBoneTransform()

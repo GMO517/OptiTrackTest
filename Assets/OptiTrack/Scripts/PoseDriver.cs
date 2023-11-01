@@ -10,6 +10,13 @@ public class PoseDriver : MonoBehaviour
     public GameObject cubeHead;
     public GameObject cubeLhand;
     public GameObject cubeRhand;
+    public GameObject dice;
+
+    //public Quaternion headOffset;
+    public Quaternion lHandOffset;
+    public Quaternion rHandOffset;
+
+
     void Start()
     {
         track = FindObjectOfType<SkeletonTrack>();
@@ -18,26 +25,21 @@ public class PoseDriver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //手正常 頭會歪掉
         if (track.trackHead != null)
         {
-            //Quaternion testRot = Quaternion.identity;
             Pose HeadPose = GetPose(track.trackHead);
-            //cubeHead.transform.SetPositionAndRotation(HeadPose.position, HeadPose.rotation);
+            //Quaternion yOffset = new Quaternion(-HeadPose.rotation.y, -HeadPose.rotation.z, HeadPose.rotation.x, HeadPose.rotation.w);
+            Quaternion yOffset = Quaternion.Euler(-90f, 0f, 90f); //人物軸心跟攝影機不同的話要記得改這邊 看XYZ軸相差多少
             cubeHead.transform.position = HeadPose.position;
+            cubeHead.transform.rotation = HeadPose.rotation * yOffset;
 
+            dice.transform.position = HeadPose.position;
+            dice.transform.rotation = HeadPose.rotation;
 
-            //Quaternion newRotation = new Quaternion(HeadPose.rotation.x, -180f, HeadPose.rotation.z, 0f);
-            cubeHead.transform.rotation = HeadPose.rotation;
-
-            //cubeHead.transform.rotation = newRotation;
-
-            //cubeHead.transform.rotation = testRot;
-            //cubeHead.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-
-
-            Debug.Log("頭位置: " + cubeHead.transform.position + " 旋轉: " + cubeHead.transform.rotation);
-
+            Debug.Log("頭數據1:" + HeadPose.position.GetType());
+            Debug.Log("頭位置:" + cubeHead.transform.position);
+            Debug.Log("頭數據2:" + HeadPose.rotation);
+            Debug.Log("頭轉:" + cubeHead.transform.rotation);
         }
         if (track.trackLeftHand != null)
         {
@@ -51,13 +53,33 @@ public class PoseDriver : MonoBehaviour
             cubeRhand.transform.SetPositionAndRotation(RhandPose.position, RhandPose.rotation);
             //Debug.Log("右手位置: " + cubeRhand.transform.position + " 旋轉: " + cubeRhand.transform.rotation);
         }
-
-
     }
 
     public Pose GetPose(Transform targetTrans)
     {
         Pose pose = new Pose(targetTrans.position, targetTrans.rotation);
         return pose;
+    }
+
+    //轉換坐標系統用 動補是右手系 unity是左手系
+    private Vector3 ConvertCoordinateSystemPos(Vector3 rightHandedVector)
+    {
+        return new Vector3(rightHandedVector.x, rightHandedVector.z, rightHandedVector.y);
+    }
+
+    private Quaternion ConvertCoordinateSystemRot(Quaternion rightHandedQuaternion)
+    {
+        return new Quaternion(
+            -rightHandedQuaternion.x,
+            -rightHandedQuaternion.z,
+            -rightHandedQuaternion.y,
+            rightHandedQuaternion.w);
+
+        //return new Quaternion(
+        //    -rightHandedQuaternion.x,
+        //    -rightHandedQuaternion.y,
+        //    -rightHandedQuaternion.z,
+        //    rightHandedQuaternion.w);
+
     }
 }
